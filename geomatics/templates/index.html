@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %} Add Questions {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                    <a href="{% url 'add-question' %}"><h6>Add Questions</h6></a>
+            </div>
+            <div class="col-lg-6">
+                    <a href="{% url 'view-question' %}"><h6>View Questions</h6></a>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

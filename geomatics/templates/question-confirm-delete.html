@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %} Home - MyOA {% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Delete Item</h1>
+<p>Are you sure you want to delete following question ?</p>
+
+<div class="container">
+  <div class="row">
+      <div class="col-lg-1">
+          <h6>{{question.id}}</h6>
+      </div>
+      <div class="col-lg-11">
+          <span><strong>{{question.question.html|safe}}</strong></span>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-1">
+          Options
+      </div>
+      <div class="col-lg-5">
+          <span>{{question.option1.html|safe}}</span>
+      </div>
+      <div class="col-lg-5 5">
+          <span>{{question.option2.html|safe}}</span>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-1">
+          
+      </div>
+      <div class="col-lg-5">
+          <span>{{question.option3.html|safe}}</span>
+      </div>
+      <div class="col-lg-5">
+          <span>{{question.option4.html|safe}}</span>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-1">
+          Correct Option
+      </div>
+      <div class="col-lg-5">
+          <span> {{question.correctOpt}}</span>
+      </div>
+      
+  </div>
+  <div class="row">
+      <div class="col-lg-1">
+          Explanation
+      </div>
+      <div class="col-lg-5">
+          <span> {{question.explanation.html|safe}} </span>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-1">
+          Status :
+      </div>
+      <div class="col-lg-11">
+          {% if question.publish %}
+              Published
+          {% else %}
+              UnPublished
+          {% endif %}
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-12">
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Yes, delete</button>
+  <a href="{% url 'view-question' %}">Cancel</a>  <!-- Adjust this to your list view -->
+</form>
+</div>
+{% endblock %}

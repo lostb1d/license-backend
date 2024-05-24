@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %} Add Questions {% endblock %}
+
+{% block content %}
+    <h1>Add Questions</h1>
+    <div class="container">
+    <form method="post" action="{% url 'add-question' %}" enctype= "multipart/form-data">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+
+        <div class="form-group">
+            <label for="chapter">Select Chapter</label>
+            {% render_field form.chapter placeholder="Select Chapter" class+="form-control form-control-sm" %}
+            
+            <label for="question">Question</label>
+            {% render_field form.question placeholder="Select Chapter" class+="form-control form-control-sm" %}
+            
+            <label for="option1">Option 1</label>
+            {% render_field form.option1 placeholder="Select Chapter" class+="form-control form-control-sm" %}
+            
+            <label for="option2">Option 2</label>
+            {% render_field form.option2 placeholder="Select Chapter" class+="form-control form-control-sm" %}
+        
+            <label for="option3">Option 3</label>
+            {% render_field form.option3 placeholder="Select Chapter" class+="form-control form-control-sm" %}
+        
+            <label for="option4">Option 4</label>
+            {% render_field form.option4 placeholder="Select Chapter" class+="form-control form-control-sm" %}
+            
+            <label for="correctOpt">Correct Option</label>
+            {% render_field form.correctOpt placeholder="Select Chapter" class+="form-control form-control-sm" %}
+        
+            <label for="explanation">Explanation</label>
+            {% render_field form.explanation placeholder="Select Chapter" class+="form-control form-control-sm" %}
+        
+            <label for="weight">Weightage</label>
+            {% render_field form.weight placeholder="Select Chapter" class+="form-control form-control-sm" %}
+        
+            <label for="publish">Publish?</label>
+            {% render_field form.publish placeholder="Select Chapter" class+="form-control form-control-sm" default=false readonly=True %}
+        
+        </div>
+        <button type="submit" class="btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}
