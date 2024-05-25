@@ -30,7 +30,7 @@ class weightage(models.Model):
     def __str__(self):
         return str(self.mark)
         
-class questions(models.Model):
+class civilQuestions(models.Model):
     chapter = models.ForeignKey(chapter, on_delete=models.CASCADE)
     question = QuillField()
     option1 = QuillField()

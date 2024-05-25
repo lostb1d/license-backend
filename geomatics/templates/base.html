@@ -28,8 +28,19 @@
     <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'index' %}">
-      <img src="https://nec.gov.np/application/resources/aepc/img/logo.png"  height="60" class="d-inline-block align-top" alt="">
+      <img src="https://cdn3.f-cdn.com/contestentries/291988/11303158/562ba848e64d0_thumb900.jpg"  height="60" class="d-inline-block align-top" alt="">
     </a>
+    <span class="navbar-brand">
+    {% if user.is_authenticated %}
+    Welcome, {{ user.first_name }}!
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    You are not logged in.
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+</span>
+
+
   </nav>
     {% block content %}
   

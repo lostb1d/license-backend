@@ -1,14 +1,89 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Up</title>
-</head>
-<body>
-    <h2>Sign Up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign Up</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div class="container">
+    
+<div class="row">
+    <div class="col-lg-8">
+
+    </div>
+    <div class="col-lg-4">
+
+        <h1>Create Account</h1>
+        <form  method="post" action="{% url 'signup' %}" enctype= "multipart/form-data">
+            {% csrf_token %}
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                         
+                <label class="form-label" for="form2Example1">First Name</label>
+                {% render_field form.first_name placeholder="First Name" class+="form-control form-control-sm" %}
+            
+                <label class="form-label" for="form2Example1">Last Name</label>
+                {% render_field form.last_name placeholder="Last Name" class+="form-control form-control-sm" %}
+            
+              <label class="form-label" for="form2Example1">Email address</label>
+              {% render_field form.email placeholder="Email" class+="form-control form-control-sm" %}
+            
+              <label class="form-label" for="form2Example1">Password</label>
+              {% render_field form.password1 placeholder="Email" class+="form-control form-control-sm" %}
+            
+              <label class="form-label" for="form2Example1">Retype Password</label>
+              {% render_field form.password2 placeholder="Email" class+="form-control form-control-sm" %}
+            
+              <label class="form-label" for="form2Example1">Course</label>
+              {% render_field form.course placeholder="Email" class+="form-control form-control-sm" %}
+            
+              <label class="form-label" for="form2Example1">Payment Detail</label>
+              {% render_field form.payment_detail placeholder="Payment Detail" class+="form-control form-control-sm" %}
+            
+            </div>
+          
+            
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                  <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+              </div>
+          
+              <div class="col">
+                <!-- Simple link -->
+                <a href="#!">Forgot password?</a>
+              </div>
+            </div>
+          
+            <!-- Submit button -->
+            <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Register</button>
+          
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Already a user? <a href="{% url 'login' %}">Login</a></p>
+              <!-- <p>or sign up with:</p>
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+          
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+          
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+          
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button> -->
+            </div>
+          </form>
+    </div>
+    </div>
+
+</div>
+
+{% endblock %}

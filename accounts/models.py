@@ -6,6 +6,7 @@ from django.conf import settings
 class Course(models.Model):
     courseName = models.CharField(max_length=200)
     courseCode = models.CharField(max_length=100)
+    courseDescription = models.TextField()
     coursePhoto = models.ImageField(upload_to='media/')
 
     def __str__(self):
@@ -39,7 +40,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, blank=True, null=True)
     validity = models.DateField(blank=True, null=True)
     payment_detail = models.ImageField(upload_to='media/', blank=True, null=True)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
     objects = CustomUserManager()

@@ -1,8 +1,9 @@
 from django.db import models
 from django_quill.fields import QuillField
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-
-
+from accounts.models import Course
+from django.conf import settings
+from django.contrib.auth.models import User
 # if i want to add user model in other model 
 
 # from django.conf import settings
@@ -14,13 +15,9 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 
 # Create your models here.
 
-class courses(models.Model):
-    course = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.course
 
 class chapter(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, default=1)
     chapterCode = models.CharField(max_length=30)
     chapterName = models.CharField(max_length=200)
 
@@ -39,7 +36,7 @@ class weightage(models.Model):
     def __str__(self):
         return str(self.mark)
         
-class questions(models.Model):
+class geomaticsQuestions(models.Model):
     chapter = models.ForeignKey(chapter, on_delete=models.CASCADE)
     question = QuillField()
     option1 = QuillField()
@@ -50,6 +47,9 @@ class questions(models.Model):
     explanation = QuillField()
     weight = models.ForeignKey(weightage, on_delete=models.CASCADE)
     publish = models.BooleanField(default=False)
+    uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
 
     def __str__(self):
         return self.question.html

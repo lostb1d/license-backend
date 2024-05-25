@@ -6,7 +6,7 @@ from django import forms
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('email', 'first_name', 'last_name')
+        fields = ( 'first_name', 'last_name','email','password1','password2','course','payment_detail')
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:

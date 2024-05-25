@@ -1,10 +1,25 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Index</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+    <div class="container">
+    <h1>Hi !! {{user.first_name}} {{user.last_name}}</h1>
+
+        <p>Your registered course is <strong>{{ user.course.courseName }}</strong></p>
+        <p>Your account is valid till {{user.validity}}</p>
+
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Take Exam</h1>
+            </div>
+            <div class="col-lg-6">
+                <h1>Chapter Wise Practice</h1>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
