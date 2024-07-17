@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u$^vuz3jxv-32m(-nj5=+akh%uc8^9bzx#!5y@f#a)8inl(@n2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ ]
 
 
 # Application definition
@@ -101,7 +101,7 @@ DATABASES = {
 #         'NAME': 'geoneerc_neclicense', 
 #         'USER': 'geoneerc_license_admin',
 #         'PASSWORD': 'Y46oRS9to;',
-#         'HOST': '65.109.153.186', 
+#         'HOST': 'localhost', 
 #         'PORT': '5432',
 #     }
 # }
