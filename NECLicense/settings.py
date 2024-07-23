@@ -90,15 +90,10 @@ WSGI_APPLICATION = 'NECLicense.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'geoneerc_nec',                      
-        'USER': 'geoneerc_amin2bhoj',
-        'PASSWORD': 'Lq{Np=3+rc6.',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # DATABASES = {
 #     'default': {
